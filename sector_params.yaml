@@ -1,0 +1,51 @@
+version: "1.0"
+notes: "Sector-specific max_steps for street anchor guardrail"
+
+sector_anchor_params:
+  Technology:
+    base_max_steps: 3
+    volatility_tier: "high"
+  
+  Communication Services:
+    base_max_steps: 3
+    volatility_tier: "high"
+  
+  Healthcare:
+    base_max_steps: 3
+    volatility_tier: "high"
+  
+  Consumer Cyclical:
+    base_max_steps: 3
+    volatility_tier: "high"
+  
+  Industrials:
+    base_max_steps: 2
+    volatility_tier: "medium"
+  
+  Basic Materials:
+    base_max_steps: 2
+    volatility_tier: "medium"
+  
+  Energy:
+    base_max_steps: 2
+    volatility_tier: "medium"
+  
+  Financial Services:
+    base_max_steps: 2
+    volatility_tier: "medium"
+  
+  Real Estate:
+    base_max_steps: 2
+    volatility_tier: "medium"
+  
+  Utilities:
+    base_max_steps: 1
+    volatility_tier: "low"
+  
+  Consumer Defensive:
+    base_max_steps: 1
+    volatility_tier: "low"
+  
+  default:
+    base_max_steps: 2
+    volatility_tier: "medium"

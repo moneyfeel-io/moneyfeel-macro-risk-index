@@ -1,0 +1,200 @@
+================================================================================
+MODIFICHE A daily_leading.py - ISTRUZIONI PRECISE
+================================================================================
+
+MODIFICA 1: Cambia FIRMA di _street_anchor_clamp (linea 137)
+================================================================================
+TROVA:
+def _street_anchor_clamp(
+    model_rating: str,
+    street_score: Optional[float],
+    dqs_score: Optional[float] = None,
+    model_fv: Optional[float] = None,
+    street_fv: Optional[float] = None,
+    forecast_er: Optional[float] = None
+) -> Tuple[str, Optional[str]]:
+
+SOSTITUISCI CON:
+def _street_anchor_clamp(
+    model_rating: str,
+    street_score: Optional[float],
+    dqs_score: Optional[float] = None,
+    model_fv: Optional[float] = None,
+    street_fv: Optional[float] = None,
+    forecast_er: Optional[float] = None,
+    sector: Optional[str] = None,
+    mc_confidence: Optional[str] = None
+) -> Tuple[str, Optional[str]]:
+
+================================================================================
+MODIFICA 2: Aggiungi CHECK MC CONFIDENCE (dopo linea 186)
+================================================================================
+TROVA (circa linea 186):
+            # CHECK 1: DQS TOO LOW?
+            elif dqs_score and dqs_score < 0.70:
+
+AGGIUNGI PRIMA:
+            # CHECK 0.5: MC CONFIDENCE LOW?
+            elif mc_confidence and mc_confidence == "low":
+                override_denied = True
+                logger.warning(
+                    f"[STREET-ANCHOR] Override DENIED: Low MC confidence, ER={forecast_er:.1%}"
+                )
+
+================================================================================
+MODIFICA 3: Usa sector_base_max_steps (linea 224)
+================================================================================
+TROVA (linea 224):
+    adaptive_cfg = guardrail_cfg.get("adaptive_clamp", {})
+    
+    if override_denied and model_fv and street_fv and street_fv > 0:
+
+SOSTITUISCI CON:
+    adaptive_cfg = guardrail_cfg.get("adaptive_clamp", {})
+    sector_base_max_steps = get_sector_max_steps(sector)
+    
+    if override_denied and model_fv and street_fv and street_fv > 0:
+
+================================================================================
+MODIFICA 4: Cambia calcolo max_steps (linea 247-252)
+================================================================================
+TROVA:
+        if dqs_score > dqs_high and divergence < div_high:
+            max_steps = int(high_cfg.get("max_steps", 3))
+        elif dqs_score < dqs_low or divergence > div_low:
+            max_steps = int(low_cfg.get("max_steps", 1))
+        else:
+            max_steps = int(adaptive_cfg.get("default_max_steps", 2))
+
+SOSTITUISCI CON:
+        if dqs_score > dqs_high and divergence < div_high:
+            max_steps = sector_base_max_steps
+        elif dqs_score < dqs_low or divergence > div_low:
+            max_steps = max(1, sector_base_max_steps - 1)
+        else:
+            max_steps = sector_base_max_steps
+
+================================================================================
+MODIFICA 5: Cambia calcolo max_steps (linea 258-263)
+================================================================================
+TROVA:
+        if dqs_score > float(high_cfg.get("dqs_threshold", 0.80)):
+            max_steps = int(high_cfg.get("max_steps", 3))
+        elif dqs_score < float(low_cfg.get("dqs_threshold", 0.70)):
+            max_steps = int(low_cfg.get("max_steps", 1))
+        else:
+            max_steps = int(adaptive_cfg.get("default_max_steps", 2))
+    else:
+        max_steps = int(adaptive_cfg.get("default_max_steps", 2))
+
+SOSTITUISCI CON:
+        if dqs_score > float(high_cfg.get("dqs_threshold", 0.80)):
+            max_steps = sector_base_max_steps
+        elif dqs_score < float(low_cfg.get("dqs_threshold", 0.70)):
+            max_steps = max(1, sector_base_max_steps - 1)
+        else:
+            max_steps = sector_base_max_steps
+    else:
+        max_steps = sector_base_max_steps
+
+================================================================================
+MODIFICA 6: Aggiungi logging (dopo linea 269)
+================================================================================
+TROVA (dopo linea 269):
+    if street_score and street_score >= 2.5 and max_steps > 2:
+        max_steps = 2
+    
+    # ════════════════════════════════════════════════════════════════════════
+
+AGGIUNGI DOPO:
+    if street_score and street_score >= 2.5 and max_steps > 2:
+        max_steps = 2
+    
+    logger.info(
+        f"[STREET-ANCHOR] {sector or 'Unknown'} sector: "
+        f"base_max_steps={sector_base_max_steps}, adjusted={max_steps}"
+    )
+    
+    # ════════════════════════════════════════════════════════════════════════
+
+================================================================================
+MODIFICA 7: In run_daily SALVA rating_before (dopo linea 1867)
+================================================================================
+TROVA (circa linea 1867):
+    rating, rating_reason = compute_rating(
+        expected_return_12m_pct=forecast.get("expected_return_12m_pct"),
+        dqs_class=dqs.get("dqs_class"),
+        methods_count=sum(1 for k, v in tri.get("method_values", {}).items() if v is not None),
+        peers_count=comps_result.get("peers_after_filters") if comps_result else None,
+        sector=sector
+    )
+    
+    # 🆕 STREET ANCHOR NUMERICO
+
+AGGIUNGI DOPO compute_rating:
+    rating, rating_reason = compute_rating(...)
+    
+    rating_before_clamp = rating
+    
+    # 🆕 STREET ANCHOR NUMERICO
+
+================================================================================
+MODIFICA 8: In run_daily PASSA sector e mc_confidence (linea 1873)
+================================================================================
+TROVA:
+    rating_after, anchor_reason = _street_anchor_clamp(
+        model_rating=rating,
+        street_score=score_num,
+        dqs_score=dqs.get("dqs_score"),
+        model_fv=tri.get("fair_value_base"), 
+        street_fv=data.get("target_mean"),
+        forecast_er=forecast.get("expected_return_12m_pct")
+    )
+
+SOSTITUISCI CON:
+    mc_confidence = mc.get("confidence") if mc else None
+    
+    rating_after, anchor_reason = _street_anchor_clamp(
+        model_rating=rating,
+        street_score=score_num,
+        dqs_score=dqs.get("dqs_score"),
+        model_fv=tri.get("fair_value_base"), 
+        street_fv=data.get("target_mean"),
+        forecast_er=forecast.get("expected_return_12m_pct"),
+        sector=sector,
+        mc_confidence=mc_confidence
+    )
+
+================================================================================
+MODIFICA 9: In run_daily AGGIUNGI TRACKING (dopo linea 1930)
+================================================================================
+TROVA (circa linea 1930):
+    write_results_leading(db, [result_row])
+    if params_row:
+        write_parameters(db, [params_row])
+    
+    return result_row
+
+SOSTITUISCI CON:
+    write_results_leading(db, [result_row])
+    if params_row:
+        write_parameters(db, [params_row])
+    
+    # TRACKING
+    track_rating_performance(
+        db=db, symbol=symbol, rating_date=as_of_date,
+        rating=rating, rating_reason=rating_reason,
+        expected_return_12m_pct=forecast.get("expected_return_12m_pct"),
+        price_at_rating=data.get("price_eod"),
+        fair_value_base=tri.get("fair_value_base"),
+        street_anchor_applied=clamp_applied,
+        street_anchor_clamp_severity=calculate_clamp_severity(rating_before_clamp, rating) if clamp_applied else 0.0,
+        value_trap_detected=trap.get("is_value_trap", False),
+        fundamental_override=(anchor_reason and "override" in anchor_reason.lower()) if clamp_applied else False
+    )
+    
+    return result_row
+
+================================================================================
+FINE MODIFICHE
+================================================================================
