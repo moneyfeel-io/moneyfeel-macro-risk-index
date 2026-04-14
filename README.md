@@ -1,6 +1,6 @@
-# MoneyFeel MRI API
+# moneyfeel MRI API
 
-**Free access to the MoneyFeel Macro & Geopolitical Risk Index (MRI) — programmatic data for researchers, quants and portfolio managers.**
+**Free access to the moneyfeel Macro & Geopolitical Risk Index (MRI) — programmatic data for researchers, quants and portfolio managers.**
 
 [![Live API](https://img.shields.io/badge/API-Live-43cea2?style=flat-square)](https://mri-public-api.luca-stagnitta.workers.dev/v1/status)
 [![Free](https://img.shields.io/badge/Access-Free-4db2e6?style=flat-square)](https://moneyfeel.it/account)
@@ -11,7 +11,7 @@
 
 ## What is the MRI?
 
-The **MoneyFeel Macro & Geopolitical Risk Index** is an institutional-grade macro regime classifier covering **5 regions** (GLOBAL, US, EU, ASIA, EM) across **3 timeframes** (Daily, Weekly, Monthly), updated daily at market close.
+The **moneyfeel Macro & Geopolitical Risk Index** is an institutional-grade macro regime classifier covering **5 regions** (GLOBAL, US, EU, ASIA, EM) across **3 timeframes** (Daily, Weekly, Monthly), updated daily at market close.
 
 The MRI classifies market conditions into 5 regimes:
 
@@ -163,7 +163,7 @@ When limits are exceeded, the API returns HTTP `429` with a clear error message 
 
 If you use MRI data in research or publications, please cite:
 
-> MoneyFeel (2026). *Macro & Geopolitical Risk Index (MRI)*. moneyfeel.it. Retrieved from https://moneyfeel.it/macro-regime-index/
+> moneyfeel (2026). *Macro & Geopolitical Risk Index (MRI)*. moneyfeel.it. Retrieved from https://moneyfeel.it/macro-regime-index/
 
 The geopolitical risk component uses:
 
@@ -179,7 +179,7 @@ Data is provided under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc
 
 ## Links
 
-- 🌐 [MoneyFeel](https://moneyfeel.it)
+- 🌐 [moneyfeel](https://moneyfeel.it)
 - 📊 [MRI Dashboard](https://moneyfeel.it/macro-regime-index/)
 - 📖 [Methodology](https://moneyfeel.it/macro-regime-index/#methodology)
 - 🔑 [Get API Key](https://moneyfeel.it/account)
