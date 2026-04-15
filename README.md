@@ -1,9 +1,10 @@
-# moneyfeel MRI API
+# MoneyFeel MRI API
 
-**Free access to the moneyfeel Macro & Geopolitical Risk Index (MRI) — programmatic data for researchers, quants and portfolio managers.**
+**Free access to the MoneyFeel Macro & Geopolitical Risk Index (MRI) — programmatic data for researchers, quants and portfolio managers.**
 
 [![Live API](https://img.shields.io/badge/API-Live-43cea2?style=flat-square)](https://mri-public-api.luca-stagnitta.workers.dev/v1/status)
-[![Free](https://img.shields.io/badge/Access-Free-4db2e6?style=flat-square)](https://moneyfeel.it/account)
+[![PyPI](https://img.shields.io/pypi/v/moneyfeel-mri?style=flat-square)](https://pypi.org/project/moneyfeel-mri/)
+[![Free](https://img.shields.io/badge/Access-Free-4db2e6?style=flat-square)](https://moneyfeel.it/conto-iscrizione/)
 [![Regions](https://img.shields.io/badge/Regions-5-9a4eb2?style=flat-square)](#regions)
 [![Docs](https://img.shields.io/badge/Docs-Full-fb0086?style=flat-square)](docs/endpoints.md)
 
@@ -11,7 +12,7 @@
 
 ## What is the MRI?
 
-The **moneyfeel Macro & Geopolitical Risk Index** is an institutional-grade macro regime classifier covering **5 regions** (GLOBAL, US, EU, ASIA, EM) across **3 timeframes** (Daily, Weekly, Monthly), updated daily at market close.
+The **MoneyFeel Macro & Geopolitical Risk Index** is an institutional-grade macro regime classifier covering **5 regions** (GLOBAL, US, EU, ASIA, EM) across **3 timeframes** (Daily, Weekly, Monthly), updated daily at market close.
 
 The MRI classifies market conditions into 5 regimes:
 
@@ -25,7 +26,23 @@ The MRI classifies market conditions into 5 regimes:
 
 The model processes **11 macro inputs** across 5 risk dimensions: credit markets, volatility, rate dynamics, sovereign spreads and geopolitical risk (GPR — [Iacoviello 2022](https://www.matteoiacoviello.com/gpr.htm)).
 
-→ [Full methodology](https://moneyfeel.it/macro-regime-index/#methodology)
+→ [Full methodology](https://moneyfeel.it/dashboard/macro-regime-index/)
+
+---
+
+## Python Client (PyPI)
+
+```bash
+pip install moneyfeel-mri
+```
+
+```python
+from moneyfeel import MRI
+client = MRI("mf_live_YOUR_KEY")
+df = client.history_df("US", "WEEKLY", from_date="2020-01-01")
+```
+
+→ [Full PyPI documentation](https://pypi.org/project/moneyfeel-mri/)
 
 ---
 
@@ -85,7 +102,7 @@ head(df)
 ## Get Your API Key
 
 1. Register for free at [moneyfeel.it](https://moneyfeel.it)
-2. Go to your [account page](https://moneyfeel.it/account)
+2. Go to your [account page](https://moneyfeel.it/conto-iscrizione/)
 3. Find the **MRI API Access** section
 4. Click **Generate API Key**
 
@@ -163,7 +180,7 @@ When limits are exceeded, the API returns HTTP `429` with a clear error message 
 
 If you use MRI data in research or publications, please cite:
 
-> moneyfeel (2026). *Macro & Geopolitical Risk Index (MRI)*. moneyfeel.it. Retrieved from https://moneyfeel.it/macro-regime-index/
+> MoneyFeel (2026). *Macro & Geopolitical Risk Index (MRI)*. moneyfeel.it. Retrieved from https://moneyfeel.it/dashboard/macro-regime-index/
 
 The geopolitical risk component uses:
 
@@ -179,7 +196,8 @@ Data is provided under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc
 
 ## Links
 
-- 🌐 [moneyfeel](https://moneyfeel.it)
-- 📊 [MRI Dashboard](https://moneyfeel.it/macro-regime-index/)
-- 📖 [Methodology](https://moneyfeel.it/macro-regime-index/#methodology)
-- 🔑 [Get API Key](https://moneyfeel.it/account)
+- 🌐 [MoneyFeel](https://moneyfeel.it)
+- 📊 [MRI Dashboard](https://moneyfeel.it/dashboard/macro-regime-index/)
+- 📖 [Methodology](https://moneyfeel.it/dashboard/macro-regime-index/)
+- 🔑 [Get API Key](https://moneyfeel.it/conto-iscrizione/)
+- 📦 [PyPI Package](https://pypi.org/project/moneyfeel-mri/)
