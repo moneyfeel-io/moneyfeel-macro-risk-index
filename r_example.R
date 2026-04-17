@@ -12,7 +12,7 @@ library(dplyr)
 library(readr)
 
 API_KEY <- "mf_live_YOUR_KEY"
-BASE    <- "https://mri-public-api.luca-stagnitta.workers.dev/v1"
+BASE    <- "https://api.moneyfeel.ai/v1"
 
 # Helper: authenticated request
 mri_request <- function(endpoint, params = list()) {
