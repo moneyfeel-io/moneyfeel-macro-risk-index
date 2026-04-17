@@ -14,7 +14,7 @@ import pandas as pd
 from io import StringIO
 
 API_KEY = "mf_live_YOUR_KEY"
-BASE    = "https://mri-public-api.luca-stagnitta.workers.dev/v1"
+BASE    = "https://api.moneyfeel.ai/v1"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
 
 
