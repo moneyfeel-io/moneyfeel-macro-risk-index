@@ -2,7 +2,7 @@
 
 **Free access to the moneyfeel Macro & Geopolitical Risk Index (MRI) — programmatic data for researchers, quants and portfolio managers.**
 
-[![Live API](https://img.shields.io/badge/API-Live-43cea2?style=flat-square)](https://mri-public-api.luca-stagnitta.workers.dev/v1/status)
+[![Live API](https://img.shields.io/badge/API-Live-43cea2?style=flat-square)](https://api.moneyfeel.ai/v1/status)
 [![PyPI](https://img.shields.io/pypi/v/moneyfeel-mri?style=flat-square)](https://pypi.org/project/moneyfeel-mri/)
 [![Free](https://img.shields.io/badge/Access-Free-4db2e6?style=flat-square)](https://moneyfeel.it/conto-iscrizione/)
 [![Regions](https://img.shields.io/badge/Regions-5-9a4eb2?style=flat-square)](#regions)
@@ -52,18 +52,18 @@ df = client.history_df("US", "WEEKLY", from_date="2020-01-01")
 # 1. Get a free API key at moneyfeel.it/account (free registration)
 
 # 2. Current regime — no auth required
-curl https://mri-public-api.luca-stagnitta.workers.dev/v1/current
+curl https://api.moneyfeel.ai/v1/current
 
 # 3. Historical regime data — API key required
 curl -H "Authorization: Bearer mf_live_YOUR_KEY" \
-  "https://mri-public-api.luca-stagnitta.workers.dev/v1/history?region=US&tf=WEEKLY&from=2020-01-01"
+  "https://api.moneyfeel.ai/v1/history?region=US&tf=WEEKLY&from=2020-01-01"
 ```
 
 ```python
 import requests
 
 API_KEY = "mf_live_YOUR_KEY"
-BASE    = "https://mri-public-api.luca-stagnitta.workers.dev/v1"
+BASE    = "https://api.moneyfeel.ai/v1"
 
 headers = {"Authorization": f"Bearer {API_KEY}"}
 
@@ -84,7 +84,7 @@ print(history["data"][:3])
 library(httr2)
 
 key  <- "mf_live_YOUR_KEY"
-base <- "https://mri-public-api.luca-stagnitta.workers.dev/v1"
+base <- "https://api.moneyfeel.ai/v1"
 
 resp <- request(base) |>
   req_url_path_append("history") |>
@@ -113,7 +113,7 @@ Keys are free for all registered users. No credit card required.
 ## Base URL
 
 ```
-https://mri-public-api.luca-stagnitta.workers.dev/v1
+https://api.moneyfeel.ai/v1
 ```
 
 ---
