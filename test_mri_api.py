@@ -29,7 +29,7 @@ import requests
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
-BASE_URL = "https://mri-public-api.luca-stagnitta.workers.dev/v1"
+BASE_URL = "https://api.moneyfeel.ai/v1"
 API_KEY = "mf_live_YOUR_KEY"  # Replace this or pass --key
 
 REGIONS = ["GLOBAL", "US", "EU", "ASIA", "EM"]
