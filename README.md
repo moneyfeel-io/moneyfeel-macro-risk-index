@@ -6,7 +6,7 @@
 [![PyPI](https://img.shields.io/pypi/v/moneyfeel-mri?style=flat-square)](https://pypi.org/project/moneyfeel-mri/)
 [![Free](https://img.shields.io/badge/Access-Free-4db2e6?style=flat-square)](https://moneyfeel.it/conto-iscrizione/)
 [![Regions](https://img.shields.io/badge/Regions-5-9a4eb2?style=flat-square)](#regions)
-[![Docs](https://img.shields.io/badge/Docs-Full-fb0086?style=flat-square)](docs/endpoints.md)
+[![Docs](https://img.shields.io/badge/Docs-Full-fb0086?style=flat-square)](./endpoints.md)
 
 ---
 
@@ -49,7 +49,7 @@ df = client.history_df("US", "WEEKLY", from_date="2020-01-01")
 ## Quick Start
 
 ```bash
-# 1. Get a free API key at moneyfeel.it/account (free registration)
+# 1. Get a free API key at moneyfeel.it//conto-iscrizione/ (free registration)
 
 # 2. Current regime — no auth required
 curl https://api.moneyfeel.ai/v1/current
@@ -133,7 +133,7 @@ https://api.moneyfeel.ai/v1
 | GET | `/v1/drawdowns` | Yes | Top drawdown periods |
 | GET | `/v1/download` | Yes | Full CSV download |
 
-→ [Full endpoint documentation](docs/endpoints.md)
+→ [Full endpoint documentation](./endpoints.md)
 
 ---
 
@@ -157,7 +157,7 @@ https://api.moneyfeel.ai/v1
 
 When limits are exceeded, the API returns HTTP `429` with a clear error message and `Retry-After` header.
 
-→ [Rate limits documentation](docs/rate-limits.md)
+→ [Rate limits documentation](./rate-limits.md)
 
 ---
 
