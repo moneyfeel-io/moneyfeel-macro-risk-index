@@ -1,6 +1,6 @@
 # Endpoints
 
-Base URL: `https://mri-public-api.luca-stagnitta.workers.dev/v1`
+Base URL: `https://api.moneyfeel.ai/v1`
 
 ---
 
@@ -10,7 +10,7 @@ Base URL: `https://mri-public-api.luca-stagnitta.workers.dev/v1`
 Health check. Returns worker status and timestamp.
 
 ```bash
-curl https://mri-public-api.luca-stagnitta.workers.dev/v1/status
+curl https://api.moneyfeel.ai/v1/status
 ```
 ```json
 {"status": "ok", "worker": "mri-public-api", "version": "1.0", "ts": "2026-04-14T12:00:00.000Z"}
@@ -22,7 +22,7 @@ curl https://mri-public-api.luca-stagnitta.workers.dev/v1/status
 Returns available regions and timeframes.
 
 ```bash
-curl https://mri-public-api.luca-stagnitta.workers.dev/v1/regions
+curl https://api.moneyfeel.ai/v1/regions
 ```
 ```json
 {
@@ -39,7 +39,7 @@ curl https://mri-public-api.luca-stagnitta.workers.dev/v1/regions
 Current regime for all 5 regions. Updated daily at market close.
 
 ```bash
-curl https://mri-public-api.luca-stagnitta.workers.dev/v1/current
+curl https://api.moneyfeel.ai/v1/current
 ```
 ```json
 {
@@ -84,7 +84,7 @@ Historical regime classifications.
 
 ```bash
 curl -H "Authorization: Bearer mf_live_YOUR_KEY" \
-  "https://mri-public-api.luca-stagnitta.workers.dev/v1/history?region=US&tf=WEEKLY&from=2020-01-01"
+  "https://api.moneyfeel.ai/v1/history?region=US&tf=WEEKLY&from=2020-01-01"
 ```
 ```json
 {
@@ -119,7 +119,7 @@ Latest regime for a specific region and timeframe.
 
 ```bash
 curl -H "Authorization: Bearer mf_live_YOUR_KEY" \
-  "https://mri-public-api.luca-stagnitta.workers.dev/v1/regime/latest?region=EU&tf=WEEKLY"
+  "https://api.moneyfeel.ai/v1/regime/latest?region=EU&tf=WEEKLY"
 ```
 
 ---
@@ -131,7 +131,7 @@ Strategy performance KPIs (Sharpe, CAGR, MaxDD, etc.).
 
 ```bash
 curl -H "Authorization: Bearer mf_live_YOUR_KEY" \
-  "https://mri-public-api.luca-stagnitta.workers.dev/v1/metrics?region=US&tf=WEEKLY"
+  "https://api.moneyfeel.ai/v1/metrics?region=US&tf=WEEKLY"
 ```
 
 ---
@@ -143,7 +143,7 @@ Daily strategy vs benchmark return series. Used for performance charts.
 
 ```bash
 curl -H "Authorization: Bearer mf_live_YOUR_KEY" \
-  "https://mri-public-api.luca-stagnitta.workers.dev/v1/timeseries?region=US&tf=WEEKLY&from=2020-01-01"
+  "https://api.moneyfeel.ai/v1/timeseries?region=US&tf=WEEKLY&from=2020-01-01"
 ```
 ```json
 {
@@ -174,7 +174,7 @@ Year-by-year returns comparison.
 
 ```bash
 curl -H "Authorization: Bearer mf_live_YOUR_KEY" \
-  "https://mri-public-api.luca-stagnitta.workers.dev/v1/eoy?region=US&tf=WEEKLY"
+  "https://api.moneyfeel.ai/v1/eoy?region=US&tf=WEEKLY"
 ```
 ```json
 {
@@ -192,7 +192,7 @@ Top 10 drawdown periods.
 
 ```bash
 curl -H "Authorization: Bearer mf_live_YOUR_KEY" \
-  "https://mri-public-api.luca-stagnitta.workers.dev/v1/drawdowns?region=US&tf=WEEKLY"
+  "https://api.moneyfeel.ai/v1/drawdowns?region=US&tf=WEEKLY"
 ```
 
 ---
@@ -202,7 +202,7 @@ Download full dataset as CSV (regime + strategy + timeseries merged).
 
 ```bash
 curl -H "Authorization: Bearer mf_live_YOUR_KEY" \
-  "https://mri-public-api.luca-stagnitta.workers.dev/v1/download?region=US&tf=WEEKLY" \
+  "https://api.moneyfeel.ai/v1/download?region=US&tf=WEEKLY" \
   -o mri_US_WEEKLY.csv
 ```
 
