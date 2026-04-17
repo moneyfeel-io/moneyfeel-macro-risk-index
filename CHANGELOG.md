@@ -2,6 +2,22 @@
 
 ## [1.0.2] — 2026-04-17
 
+### Changed
+
+- Updated the default public API base URL to `https://api.moneyfeel.ai/v1`
+- Aligned documentation, examples and test suite with the official custom domain
+- Confirmed end-to-end compatibility for the Python client and public MRI API
+
+## [1.0.1] — 2026-04-16
+
+### Improved
+
+- Refined package documentation and usage examples
+- Improved code comments and formatting across the test suite
+- Minor cleanup of repository structure and developer-facing documentation
+
+## [1.0.0] — 2026-04-15
+
 ### Initial Release
 
 - Public API for MoneyFeel MRI data
