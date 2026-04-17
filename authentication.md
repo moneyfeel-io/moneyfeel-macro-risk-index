@@ -21,7 +21,7 @@ Authorization: Bearer mf_live_YOUR_KEY
 ### curl
 ```bash
 curl -H "Authorization: Bearer mf_live_YOUR_KEY" \
-  "https://mri-public-api.luca-stagnitta.workers.dev/v1/history?region=US&tf=WEEKLY"
+  "https://api.moneyfeel.ai/v1/history?region=US&tf=WEEKLY"
 ```
 
 ### Python
@@ -30,7 +30,7 @@ import requests
 
 headers = {"Authorization": "Bearer mf_live_YOUR_KEY"}
 r = requests.get(
-    "https://mri-public-api.luca-stagnitta.workers.dev/v1/history",
+    "https://api.moneyfeel.ai/v1/history",
     params={"region": "US", "tf": "WEEKLY"},
     headers=headers
 )
@@ -41,7 +41,7 @@ data = r.json()
 ```r
 library(httr2)
 
-request("https://mri-public-api.luca-stagnitta.workers.dev/v1/history") |>
+request("https://api.moneyfeel.ai/v1/history") |>
   req_url_query(region = "US", tf = "WEEKLY") |>
   req_headers(Authorization = "Bearer mf_live_YOUR_KEY") |>
   req_perform() |>
@@ -51,7 +51,7 @@ request("https://mri-public-api.luca-stagnitta.workers.dev/v1/history") |>
 ### JavaScript / Node.js
 ```javascript
 const response = await fetch(
-  "https://mri-public-api.luca-stagnitta.workers.dev/v1/history?region=US&tf=WEEKLY",
+  "https://api.moneyfeel.ai/v1/history?region=US&tf=WEEKLY",
   { headers: { "Authorization": "Bearer mf_live_YOUR_KEY" } }
 );
 const data = await response.json();
