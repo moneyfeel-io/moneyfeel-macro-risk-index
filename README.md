@@ -49,7 +49,7 @@ df = client.history_df("US", "WEEKLY", from_date="2020-01-01")
 ## Quick Start
 
 ```bash
-# 1. Get a free API key at moneyfeel.it//conto-iscrizione/ (free registration)
+# 1. Get a free API key at https://moneyfeel.it/conto-iscrizione/ (free registration)
 
 # 2. Current regime — no auth required
 curl https://api.moneyfeel.ai/v1/current
