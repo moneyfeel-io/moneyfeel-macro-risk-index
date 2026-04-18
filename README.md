@@ -26,7 +26,7 @@ The MRI classifies market conditions into 5 regimes:
 
 The model processes **11 macro inputs** across 5 risk dimensions: credit markets, volatility, rate dynamics, sovereign spreads and geopolitical risk (GPR — [Iacoviello 2022](https://www.matteoiacoviello.com/gpr.htm)).
 
-→ [Full methodology](https://moneyfeel.it/dashboard/macro-regime-index/)
+→ [Full methodology](https://moneyfeel.it/dashboard/macro-risk-index/)
 
 ---
 
@@ -180,7 +180,7 @@ When limits are exceeded, the API returns HTTP `429` with a clear error message 
 
 If you use MRI data in research or publications, please cite:
 
-> moneyfeel (2026). *Macro & Geopolitical Risk Index (MRI)*. moneyfeel.it. Retrieved from https://moneyfeel.it/dashboard/macro-regime-index/
+> moneyfeel (2026). *Macro & Geopolitical Risk Index (MRI)*. moneyfeel.it. Retrieved from https://moneyfeel.it/dashboard/macro-risk-index/
 
 The geopolitical risk component uses:
 
@@ -197,7 +197,7 @@ Data is provided under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc
 ## Links
 
 - 🌐 [moneyfeel](https://moneyfeel.it)
-- 📊 [MRI Dashboard](https://moneyfeel.it/dashboard/macro-regime-index/)
-- 📖 [Methodology](https://moneyfeel.it/dashboard/macro-regime-index/)
+- 📊 [MRI Dashboard](https://moneyfeel.it/dashboard/macro-risk-index/)
+- 📖 [Methodology](https://moneyfeel.it/dashboard/macro-risk-index/)
 - 🔑 [Get API Key](https://moneyfeel.it/conto-iscrizione/)
 - 📦 [PyPI Package](https://pypi.org/project/moneyfeel-mri/)
