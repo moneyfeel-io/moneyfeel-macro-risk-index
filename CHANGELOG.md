@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.4] — 2026-04-18
+
+### Changed
+
+- Updated package metadata to use SPDX license expression `CC-BY-NC-4.0`
+- Removed deprecated license classifier from project configuration
+- Refreshed package distribution metadata and republished clean release assets
+
+## [1.0.3] — 2026-04-18
+
+### Changed
+
+- Renamed package-facing references from “Macro Regime Index” to “Macro Risk Index” in project metadata
+- Updated project links to the new dashboard URL: `https://moneyfeel.it/dashboard/macro-risk-index/`
+- Updated account and documentation links across package metadata and published project description
+- Refreshed README and PyPI presentation to align with the current public URLs
+
 ## [1.0.2] — 2026-04-17
 
 ### Changed
