@@ -21,8 +21,8 @@ The MRI classifies market conditions into 5 regimes:
 |---|---|---|
 | `STRONG_BULL` | 100% | Strong momentum, compressed volatility |
 | `BULL` | 100% | Positive macro, manageable conditions |
-| `NEUTRAL` | 100% | Mixed signals, no confirmed stress |
-| `BEAR` | 20% | Elevated credit stress, rising volatility |
+| `NEUTRAL` | 60% | Mixed signals, no confirmed stress |
+| `BEAR` | 0% | Elevated credit stress, rising volatility |
 | `STRONG_BEAR` | 0% | Crisis conditions, extreme systemic stress |
 
 The model processes **11 macro inputs** across 5 risk dimensions: credit markets, volatility, rate dynamics, sovereign spreads and geopolitical risk (GPR — [Iacoviello 2022](https://www.matteoiacoviello.com/gpr.htm)).
