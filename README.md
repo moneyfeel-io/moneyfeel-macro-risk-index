@@ -21,7 +21,7 @@ The MRI classifies market conditions into 5 regimes:
 |---|---|---|
 | `STRONG_BULL` | 100% | Strong momentum, compressed volatility |
 | `BULL` | 100% | Positive macro, manageable conditions |
-| `NEUTRAL` | 60% | Mixed signals, no confirmed stress |
+| `NEUTRAL` | 60% | Mixed signals, no confirmed stress (conceptually similar to 60/40). |
 | `BEAR` | 0% | Elevated credit stress, rising volatility |
 | `STRONG_BEAR` | 0% | Crisis conditions, extreme systemic stress |
 
