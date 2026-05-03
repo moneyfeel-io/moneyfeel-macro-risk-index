@@ -1,19 +1,38 @@
-# moneyfeel MRI API
+# moneyfeel Macro Risk Index — API & Documentation
 
-**Free access to the moneyfeel Macro & Geopolitical Risk Index (MRI) — programmatic data for researchers, quants and portfolio managers.**
+> **Free REST API** for the moneyfeel **Macro & Geopolitical Risk Index (MRI)** —
+> an institutional-grade market regime classifier covering **5 regions**
+> (GLOBAL, US, EU, ASIA, EM) across **3 timeframes** (Daily, Weekly, Monthly),
+> updated daily at market close.
 
 [![Live API](https://img.shields.io/badge/API-Live-43cea2?style=flat-square)](https://api.moneyfeel.ai/v1/status)
 [![PyPI](https://img.shields.io/pypi/v/moneyfeel-mri?style=flat-square)](https://pypi.org/project/moneyfeel-mri/)
 [![Free](https://img.shields.io/badge/Access-Free-4db2e6?style=flat-square)](https://moneyfeel.it/conto-iscrizione/)
-[![Regions](https://img.shields.io/badge/Regions-5-9a4eb2?style=flat-square)](#regions)
+[![Regions](https://img.shields.io/badge/Regions-5-9a4eb2?style=flat-square)](#regions--timeframes)
 [![Docs](https://img.shields.io/badge/Docs-Full-fb0086?style=flat-square)](./endpoints.md)
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey?style=flat-square)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![Coverage](https://img.shields.io/badge/Coverage-2007--present-green?style=flat-square)](#regions--timeframes)
 
 ![MRI Dashboard Overview](dashboard-overview.png)
+
+---
+
+## What this repository is
+
+| | |
+|---|---|
+| ✅ | Official REST API documentation for the moneyfeel MRI |
+| ✅ | Full examples in `curl`, `Python` and `R` |
+| ✅ | Python client installable via `pip install moneyfeel-mri` |
+| ✅ | Free access for research and non-commercial use |
+| ❌ | Does NOT contain the MRI model source code |
+| ❌ | Does NOT contain raw data (available via API) |
+
 ---
 
 ## What is the MRI?
 
-The **moneyfeel Macro & Geopolitical Risk Index** is an institutional-grade macro regime classifier covering **5 regions** (GLOBAL, US, EU, ASIA, EM) across **3 timeframes** (Daily, Weekly, Monthly), updated daily at market close.
+The **moneyfeel Macro & Geopolitical Risk Index (MRI)** is an institutional-grade macro regime classifier covering **5 regions** (GLOBAL, US, EU, ASIA, EM) across **3 timeframes** (Daily, Weekly, Monthly), updated daily at market close.
 
 The MRI classifies market conditions into 5 regimes:
 
@@ -201,4 +220,4 @@ Data is provided under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc
 - 📊 [MRI Dashboard](https://moneyfeel.it/dashboard/macro-risk-index/)
 - 📖 [Methodology](https://moneyfeel.it/dashboard/macro-risk-index/)
 - 🔑 [Get API Key](https://moneyfeel.it/conto-iscrizione/)
-- 📦 [PyPI Package](https://pypi.org/project/moneyfeel-mri/)
+- 📦 [PyPI Package](https://pypi)
