@@ -220,4 +220,4 @@ Data is provided under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc
 - 📊 [MRI Dashboard](https://moneyfeel.it/dashboard/macro-risk-index/)
 - 📖 [Methodology](https://moneyfeel.it/dashboard/macro-risk-index/)
 - 🔑 [Get API Key](https://moneyfeel.it/conto-iscrizione/)
-- 📦 [PyPI Package](https://pypi)
+- 📦 [PyPI Package](https://pypi.org/project/moneyfeel-mri/)
